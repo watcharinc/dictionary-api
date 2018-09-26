@@ -20,7 +20,7 @@ class PlatformController(val menuService: MenuService) {
         }
     }
 
-    @GetMapping(value = "/{id}")
+    @PutMapping(value = "/{id}")
     fun update(@RequestBody menu: Menu, @PathVariable id: String): Menu {
         try{
             menu.id = id
