@@ -39,23 +39,23 @@ class MenuController(val menuService: MenuService) {
         }
     }
 
-//    @GetMapping(value = "/{id}")
-//    fun get(@PathVariable id: String): Menu{
-//        try{
-//            return menuService.findById(id)
-//        }catch(ex: Exception){
-//            throw ex
-//        }
-//    }
-//
-//    @DeleteMapping(value = "/{id}")
-//    fun delete(@PathVariable id: String): Menu{
-//        try{
-//            return menuService.delete(id)
-//        }catch(ex: Exception){
-//            throw ex
-//        }
-//    }
+    @GetMapping(value = "/{id}")
+    fun get(@PathVariable id: String): Menu{
+        try{
+            return menuService.findById(id)
+        }catch(ex: Exception){
+            throw ex
+        }
+    }
+
+    @DeleteMapping(value = "/{id}")
+    fun delete(@PathVariable id: String) {
+        try{
+            return menuService.delete(id)
+        }catch(ex: Exception){
+            throw ex
+        }
+    }
 
     @GetMapping(value = "/findByName/{name}")
     fun getByName(@PathVariable name: String): Iterable<Menu> {
