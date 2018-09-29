@@ -9,7 +9,7 @@ import java.lang.Exception
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/api/v1/menus")
-class PlatformController(val menuService: MenuService) {
+class MenuController(val menuService: MenuService) {
 
     @PostMapping()
     fun create(@RequestBody menu: Menu): Menu {

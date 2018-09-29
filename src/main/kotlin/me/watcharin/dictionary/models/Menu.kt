@@ -6,5 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document
 data class Menu (
             @Id var id: String? = null,
-            var name: String? = ""
+            var name: String? = "",
+            var shortName: String? = ""
     )
