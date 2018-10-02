@@ -14,3 +14,22 @@ spring:
       options:
         maxWaitTime: 10000
         sslEnabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, prometheus, metrics
+      base-path: /
+      path-mapping:
+        health: /health
+        info: /info
+        prometheus: /prometheus
+        metrics: /actuator/metrics
+  security:
+    enabled: false
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      sla:
+        http.server.requests: 300ms
