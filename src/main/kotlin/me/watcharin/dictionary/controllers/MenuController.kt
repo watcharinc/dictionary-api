@@ -12,7 +12,6 @@ import java.lang.Exception
 @RestController
 @RequestMapping(value = "/api/v1/menus")
 class MenuController(val menuService: MenuService) {
-
     @PostMapping()
     fun create(@RequestBody menu: Menu): ResponseEntity<Any> {
         try{
