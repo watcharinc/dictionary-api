@@ -23,6 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<kotlin.version>1.2.51</kotlin.version>
+		<spring-cloud.version>Finchley.SR2</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -77,10 +78,11 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- micrometer --><dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-actuator</artifactId>
-	</dependency>
+		<!-- micrometer -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
@@ -92,7 +94,30 @@
 			<artifactId>cdi-api</artifactId>
 			<version>1.0</version>
 		</dependency>
+
+		<!-- zipkin and sleuth -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
